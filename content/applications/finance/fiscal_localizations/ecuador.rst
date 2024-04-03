@@ -554,6 +554,88 @@ withholdings percentages apply.
    withholding of 70% in a new line with the same tax support, the system will allow you as long as
    the total of the bases matches the total from the :guilabel:`Vendor Bill`.
 
+eCommerce
+---------
+
+This *ATS Report* module enables the features and configurations to:
+
+- Choose the SRI Payment Method in each payment method configuration.
+- Customers can manually input their identification type and identification number in the checkout
+  process on the website.
+- Automatically generate a valid electronic invoice for Ecuador at the end of the checkout process.
+
+Configuration
+~~~~~~~~~~~~~
+
+The following configurations are needed to effectively generate electronic invoices after the
+checkout process on the website.
+
+Website settings
+****************
+
+To enable automatic invoicing, navigate to :menuselection:`Website --> Configuration --> Settings:
+Invoicing` section and activate the option :guilabel:`Automatic Invoicing`. With this option active,
+an invoice will be generated after the checkout process.
+
+.. tip::
+   The email template for the invoice can be modified from the :guilabel:`Invoice Email Template`
+   field under the :guilabel:`Automatic Invoicing` option.
+
+It is important to clarify that the sales journal that will be used for invoicing will be the first
+in the sequence of priority in the *Journal* menu.
+
+Payment providers
+*****************
+
+Activate the payment providers that will be used to capture payments through the eCommerce website.
+To do so, navigate to :menuselection:`Website --> Configuration --> Settings: Shop - Payment`
+section and then click on the :guilabel:`View other providers` button under the :guilabel:`Activate
+Payments` heading. From here, each payment provider can be configured by selecting a provider
+record. Once a provider is configured, be sure to click the :guilabel:`Publish` button so it is
+available in the checkout process when paying.
+
+Payment methods
+***************
+
+Activate the payment methods that each payment provider can have. To do this, click on the option
+:guilabel:`Enable Payment Methods` button within the configuration of each provider. This will allow
+each provider to have one or more payment methods.
+
+When configuring the payment method, it is **mandatory** to set the :guilabel:`SRI Payment Method`
+for each method. This field will appear after you create and save the payment method for the first
+time.
+
+.. note::
+   The :guilabel:`SRI Payment Method` field will not be visible when configuring the payment method
+   for the first time. This information is mandatory to correctly generate the electronic invoice
+   from the eCommerce sale.
+
+.. image:: ecuador/l10n-ec-sri-payment-method.png
+   :align: center
+   :alt: l10n_ec SRI Payment Method.
+
+eCommerce workflow
+~~~~~~~~~~~~~~~~~~
+
+Type and identification number
+******************************
+
+The client who is making a purchase will have the option in the checkout process to indicate their
+identification type and number. This information is required to correctly generate the electronic
+invoice after the checkout is completed.
+
+.. image:: ecuador/website-checkout-form.png
+   :align: center
+   :alt: Website checkout form.
+
+.. note::
+   A verification exists to verify that the *Identification Number* field is completed and has the
+   correct number of digits. For RUC identification, 13 digits are required. For Cédula, 9 digits
+   are required.
+
+After finishing the checkout process, a confirmed invoice is generated ready to be sent manually or
+asynchronously to the SRI.
+
 Financial Reports
 =================
 
@@ -583,7 +665,7 @@ This report contains information on VAT tax and VAT withholding for a given peri
 monthly or semi-annually.
 
 You can see the information needed to report, which includes base and tax amounts, which also
-includes the tax code within the parenthesis in order to report it to the SRI.
+includes the tax code within the parenthesis to report it to the SRI.
 
 .. image:: ecuador/104-form.png
    :align: center
